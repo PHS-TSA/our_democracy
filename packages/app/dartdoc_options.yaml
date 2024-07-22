@@ -1,0 +1,6 @@
+dartdoc:
+  showUndocumentedCategories: true
+  includeExternal: ["test/helpers/*.dart"]
+  linkToSource:
+    uriTemplate: "https://github.com/PHS-TSA/our_democracy/blob/main/%f%#L%l%"
+    root: "."
