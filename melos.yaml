@@ -1,0 +1,25 @@
+name: "our_democracy"
+
+packages:
+  - packages/**
+
+scripts:
+  lint:
+    description: analyze projects
+    steps:
+      - analyze --fatal-infos
+      - melos exec -- dart run custom_lint --fatal-infos
+  gen:
+    description: run code generation
+    steps:
+      - melos run gen-l10n
+      - melos run build_runner
+  gen-l10n:
+    description: generate l10n files
+    exec: flutter gen-l10n
+  build_runner:
+    description: run build_runner
+    exec: dart run build_runner build --delete-conflicting-outputs
+  test:
+    description: run tests
+    exec: dart run very_good_cli:very_good test --coverage --test-randomize-ordering-seed random
