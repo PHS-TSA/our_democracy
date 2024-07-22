@@ -1,0 +1,13 @@
+# Each line is a file pattern followed by one or more owners.
+
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence,
+# the global owners will be requested for
+# review when someone opens a pull request.
+*             @PHS-TSA/our-democracy
+
+**.dart          @PHS-TSA/our-democracy
+/.github/        @PHS-TSA/our-democracy
+/packages/*/assets/  @PHS-TSA/our-democracy
+tests/           @PHS-TSA/our-democracy
+pubspec.*        @PHS-TSA/our-democracy
