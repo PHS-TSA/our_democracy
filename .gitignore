@@ -26,7 +26,7 @@ migrate_working_dir/
 .pub/
 build/
 coverage/
-lib/gen/
+/packages/*/lib/gen/
 
 # Generated files
 **/*.g.dart
@@ -40,20 +40,12 @@ app.*.symbols
 # Obfuscation related
 app.*.map.json
 
-# Android Studio will place build artifacts here
-/packages/*/android/app/debug
-/packages/*/android/app/profile
-/packages/*/android/app/release
-
-
 # See https://www.dartlang.org/guides/libraries/private-files
 
 # Files and directories created by pub
 .dart_tool/
 .packages
 build/
-# If you're building an application, you may want to check-in your pubspec.lock
-# pubspec.lock
 
 # Directory created by dartdoc
 # If you don't generate documentation locally you can remove this line.
@@ -107,6 +99,7 @@ build/
 
 # Generated files
 .idea/**/contentModel.xml
+.idea/runConfigurations/melos_*.xml
 
 # Sensitive or high-churn files
 .idea/**/dataSources/
@@ -170,3 +163,8 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
+
+# Android Studio will place build artifacts here
+/packages/*/android/app/debug
+/packages/*/android/app/profile
+/packages/*/android/app/release

@@ -1,4 +1,5 @@
 {
+  "@@locale": "en",
   "appTitle": "Our Democracy",
   "@appTitle": {
     "description": "The title of the application"

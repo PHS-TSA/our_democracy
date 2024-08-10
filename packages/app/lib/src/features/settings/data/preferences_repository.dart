@@ -20,7 +20,7 @@ abstract interface class PreferencesRepository {
 class _SharedPreferencesRepository implements PreferencesRepository {
   _SharedPreferencesRepository(this.prefs);
 
-  final SharedPreferences prefs;
+  final SharedPreferencesWithCache prefs;
 
   @override
   Future<SettingsModel> load() async {
@@ -35,13 +35,13 @@ class _SharedPreferencesRepository implements PreferencesRepository {
 
 @Riverpod(keepAlive: true)
 PreferencesRepository preferencesRepository(PreferencesRepositoryRef ref) {
-  final prefs = ref.read(sharedPreferencesProvider);
+  final prefs = ref.watch(sharedPreferencesProvider);
 
   return _SharedPreferencesRepository(prefs);
 }
 
 @internal
-Future<SettingsModel> loadSettings(SharedPreferences prefs) async {
+Future<SettingsModel> loadSettings(SharedPreferencesWithCache prefs) async {
   final data = prefs.getString('prefs');
   if (data != null) {
     final Object? decoded = json.decode(data);
@@ -53,8 +53,8 @@ Future<SettingsModel> loadSettings(SharedPreferences prefs) async {
   return defaultSettings;
 }
 
-@riverpod
-SharedPreferences sharedPreferences(SharedPreferencesRef ref) {
+@Riverpod(keepAlive: true)
+SharedPreferencesWithCache sharedPreferences(SharedPreferencesRef ref) {
   throw UnimplementedError();
 }
 

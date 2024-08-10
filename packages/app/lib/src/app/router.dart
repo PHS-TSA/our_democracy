@@ -1,15 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 
-import '../features/sample/presentation/items/sample_item_details_page.dart';
-import '../features/sample/presentation/items/sample_items_list_page.dart';
-import '../features/settings/presentation/preferences/settings_page.dart';
-import 'wrapper_page.dart';
-
-part 'router.gr.dart';
+import 'router.gr.dart';
 
 /// The router for the application.
-@AutoRouterConfig(replaceInRouteName: 'Page,Route')
-class AppRouter extends _$AppRouter {
+@AutoRouterConfig(replaceInRouteName: 'Page,Route', deferredLoading: true)
+class AppRouter extends RootStackRouter {
   /// Create a new instance of [AppRouter].
   AppRouter();
 

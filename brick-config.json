@@ -1,0 +1,9 @@
+{
+  "project_name": "Our Democracy",
+  "description": "An application to encourage participation in the American democratic system",
+  "bundle_id": "org.psdr3.our_democracy",
+  "user": "PHS-TSA",
+  "repo": "our_democracy",
+  "main": "main",
+  "use_serverpod": false
+}

@@ -20,7 +20,10 @@ mixin Bootstrap on Widget {
   /// - running the app with [runApp].
   Future<void> bootstrap(
     void Function(Widget app) runApp,
-    Future<SharedPreferences> Function() getSharedPreferences,
+    Future<SharedPreferencesWithCache> Function({
+      Map<String, Object?>? cache,
+      required SharedPreferencesWithCacheOptions cacheOptions,
+    }) getSharedPreferences,
   ) async {
     // Don't use hash style routes.
     usePathUrlStrategy();
@@ -33,7 +36,9 @@ mixin Bootstrap on Widget {
     );
 
     // Load the user's preferences.
-    final prefs = await getSharedPreferences();
+    final prefs = await getSharedPreferences(
+      cacheOptions: const SharedPreferencesWithCacheOptions(),
+    );
     final initialSettings = await loadSettings(prefs);
 
     // Run the app.

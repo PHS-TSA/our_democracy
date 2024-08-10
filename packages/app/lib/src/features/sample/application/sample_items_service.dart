@@ -8,7 +8,7 @@ part 'sample_items_service.g.dart';
 @riverpod
 class SampleItemsService extends _$SampleItemsService {
   @override
-  SampleItemsModel build() {
+  Future<SampleItemsModel> build() async {
     return const SampleItemsModel(
       items: [
         SampleItemEntity(1),

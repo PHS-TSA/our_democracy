@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'router.dart';
+import 'router.gr.dart';
 
 @RoutePage()
 class WrapperPage extends ConsumerWidget {

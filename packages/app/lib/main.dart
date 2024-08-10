@@ -6,6 +6,6 @@ import 'src/app/app.dart';
 Future<void> main() async {
   await const MyApp().bootstrap(
     runApp,
-    SharedPreferences.getInstance,
+    SharedPreferencesWithCache.create,
   );
 }

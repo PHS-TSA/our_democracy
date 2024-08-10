@@ -68,10 +68,8 @@
       }
     },
     {
-      "type": "flutter",
-      "command": "flutter",
-      "args": ["gen-l10n"],
-      "problemMatcher": [],
+      "type": "melos",
+      "script": "gen-l10n",
       "group": "build",
       "label": "Flutter: gen-l10n",
       "detail": "Generate the localization files.",
@@ -81,17 +79,8 @@
       }
     },
     {
-      "type": "dart",
-      "command": "dart",
-      "cwd": ".",
-      "args": [
-        "run",
-        "very_good_cli:very_good",
-        "test",
-        "--coverage",
-        "--test-randomize-ordering-seed",
-        "random"
-      ],
+      "type": "melos",
+      "script": "test",
       "group": {
         "kind": "test",
         "isDefault": true

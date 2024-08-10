@@ -7,8 +7,8 @@ void main() {
     test('provides three items', () {
       final container = ProviderContainer();
 
-      final model = container.read(sampleItemsServiceProvider);
-      expect(model.items.length, 3);
+      final model = container.read(sampleItemsServiceProvider).value;
+      expect(model?.items.length, 3);
     });
   });
 }

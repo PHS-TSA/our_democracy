@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../../gen/assets.gen.dart';
-import '../../../../app/router.dart';
+import '../../../../app/router.gr.dart';
 import '../../application/sample_items_service.dart';
 
 /// Displays a list of SampleItems.
@@ -15,7 +15,7 @@ class SampleItemsListPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final items = ref.watch(sampleItemsServiceProvider).items;
+    final items = ref.watch(sampleItemsServiceProvider).valueOrNull?.items;
 
     // To work with lists that may contain a large number of items, it’s best
     // to use the ListView.builder constructor.
@@ -28,8 +28,11 @@ class SampleItemsListPage extends ConsumerWidget {
       // scroll position when a user leaves and returns to the app after it
       // has been killed while running in the background.
       restorationId: 'sampleItemListView',
-      itemCount: items.length,
+      itemCount: items?.length,
       itemBuilder: (BuildContext context, int index) {
+        if (items == null) {
+          return const CircularProgressIndicator();
+        }
         final item = items[index];
         final title = 'SampleItem ${item.id}';
 
@@ -38,7 +41,7 @@ class SampleItemsListPage extends ConsumerWidget {
           leading: Semantics(
             label: title,
             child: CircleAvatar(
-              // Display the Flutter Logo image asset.
+              // Display the Logo image asset.
               foregroundImage: Assets.icons.logo.provider(),
             ),
           ),

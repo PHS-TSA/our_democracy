@@ -88,9 +88,11 @@ jobs:
         include:
           - target: web
             os: ubuntu-latest
-            flutter-flags: --release
+            flutter-flags: --release --wasm
           - target: appbundle
             os: ubuntu-latest
+            # This is the least optimized, but is significantly faster in CI.
+            # Android releases should be built locally on a beefy machine.
             flutter-flags: --debug --no-tree-shake-icons --no-shrink
           # - target: ios
           #   os: macos-latest

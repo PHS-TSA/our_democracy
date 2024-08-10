@@ -6,7 +6,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../helpers/mocks.dart';
 
-Future<SharedPreferences> getSharedPreferences() async {
+Future<SharedPreferencesWithCache> getSharedPreferences({
+  Map<String, Object?>? cache,
+  required SharedPreferencesWithCacheOptions cacheOptions,
+}) async {
   return MockSharedPreferences();
 }
 
