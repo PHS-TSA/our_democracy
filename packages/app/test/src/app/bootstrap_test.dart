@@ -1,3 +1,4 @@
+import 'package:checks/checks.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -20,15 +21,11 @@ void main() {
 
   test('main does not throw', () async {
     const app = MyApp();
-
-    await expectLater(
-      app.bootstrap(
-        (
-          runApp: (_) {},
-          getSharedPreferences: getSharedPreferences,
-        ),
-      ),
-      completes,
+    final env = (
+      runApp: (_) {},
+      getSharedPreferences: getSharedPreferences,
     );
+
+    await check(app.bootstrap(env)).completes();
   });
 }

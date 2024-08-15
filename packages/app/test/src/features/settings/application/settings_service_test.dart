@@ -1,9 +1,11 @@
+import 'package:checks/checks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:our_democracy/src/features/settings/application/settings_service.dart';
 import 'package:our_democracy/src/features/settings/data/preferences_repository.dart';
+import 'package:our_democracy/src/features/settings/domain/settings_model.dart';
 
 import '../../../../helpers/mocks.dart';
 
@@ -24,12 +26,12 @@ void main() {
       final model = container.read(settingsServiceProvider);
       final notifier = container.read(settingsServiceProvider.notifier);
 
-      expect(model.themeMode, ThemeMode.system);
+      check(model.themeMode).equals(ThemeMode.system);
 
       await notifier.updateThemeMode(ThemeMode.light);
 
       final newModel = container.read(settingsServiceProvider);
-      expect(newModel.themeMode, ThemeMode.light);
+      check(newModel.themeMode).equals(ThemeMode.light);
     });
   });
 
@@ -38,12 +40,11 @@ void main() {
       // Arrange
       final container = ProviderContainer();
 
+      // Act
+      SettingsModel call() => container.read(initialSettingsProvider);
+
       // Assert
-      expect(
-        // Act
-        () => container.read(initialSettingsProvider),
-        throwsA(isA<UnimplementedError>()),
-      );
+      check(call).throws<UnimplementedError>();
     });
   });
 }

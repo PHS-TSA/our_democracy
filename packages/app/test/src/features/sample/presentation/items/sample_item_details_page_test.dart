@@ -1,3 +1,5 @@
+import 'package:checks/checks.dart';
+import 'package:flutter_checks/flutter_checks.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:our_democracy/src/features/sample/presentation/items/sample_item_details_page.dart';
 
@@ -15,7 +17,7 @@ void main() {
       await tester.pumpApp(widget);
 
       // Verify that the widget displays the expected information
-      expect(find.text('More Information Here'), findsOneWidget);
+      check(find.text('More Information Here')).findsOne();
     });
   });
 

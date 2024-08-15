@@ -1,3 +1,4 @@
+import 'package:checks/checks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -25,7 +26,7 @@ void main() {
       final settings = await repo.load();
 
       // Assert
-      expect(settings.themeMode, ThemeMode.system);
+      check(settings.themeMode).equals(ThemeMode.system);
     });
 
     test('should decode the theme mode', () async {
@@ -47,7 +48,7 @@ void main() {
       final settings = await repo.load();
 
       // Assert
-      expect(settings.themeMode, ThemeMode.dark);
+      check(settings.themeMode).equals(ThemeMode.dark);
     });
   });
 
@@ -61,7 +62,7 @@ void main() {
           container.read(preferencesRepositoryProvider);
 
       // Assert
-      expect(call, throwsA(isA<UnimplementedError>()));
+      check(call).throws<UnimplementedError>();
     });
   });
 }

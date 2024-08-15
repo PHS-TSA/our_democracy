@@ -1,4 +1,6 @@
+import 'package:checks/checks.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_checks/flutter_checks.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:our_democracy/src/app/app.dart';
@@ -27,25 +29,26 @@ extension _WidgetTesterX on WidgetTester {
 void main() {
   testWidgets('MyApp should build MaterialApp.router', (tester) async {
     await tester.pumpWidgetPage();
-    expect(find.byType(MaterialApp), findsOneWidget);
+    check(find.byType(MaterialApp)).findsOne();
   });
 
   testWidgets('MyApp should have correct restorationScopeId', (tester) async {
     await tester.pumpWidgetPage();
     final app = tester.widget<MaterialApp>(find.byType(MaterialApp));
-    expect(app.restorationScopeId, 'app');
+    check(app.restorationScopeId).equals('app');
   });
 
   testWidgets('MyApp should have correct localizationsDelegates',
       (tester) async {
     await tester.pumpWidgetPage();
     final app = tester.widget<MaterialApp>(find.byType(MaterialApp));
-    expect(app.localizationsDelegates, AppLocalizations.localizationsDelegates);
+    check(app.localizationsDelegates)
+        .equals(AppLocalizations.localizationsDelegates);
   });
 
   testWidgets('MyApp should have correct supportedLocales', (tester) async {
     await tester.pumpWidgetPage();
     final app = tester.widget<MaterialApp>(find.byType(MaterialApp));
-    expect(app.supportedLocales, AppLocalizations.supportedLocales);
+    check(app.supportedLocales).equals(AppLocalizations.supportedLocales);
   });
 }

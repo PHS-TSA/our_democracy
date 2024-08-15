@@ -1,4 +1,6 @@
+import 'package:checks/checks.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_checks/flutter_checks.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -13,28 +15,28 @@ void testAccessibilityGuidelines(
       await tester.pumpApp(widget, overrides: overrides);
 
       final handle = tester.ensureSemantics();
-      await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
+      await check(tester).meetsGuideline(androidTapTargetGuideline);
       handle.dispose();
     });
     testWidgets('on iOS.', (tester) async {
       await tester.pumpApp(widget, overrides: overrides);
 
       final handle = tester.ensureSemantics();
-      await expectLater(tester, meetsGuideline(iOSTapTargetGuideline));
+      await check(tester).meetsGuideline(iOSTapTargetGuideline);
       handle.dispose();
     });
     testWidgets('according to the WCAG.', (tester) async {
       await tester.pumpApp(widget, overrides: overrides);
 
       final handle = tester.ensureSemantics();
-      await expectLater(tester, meetsGuideline(textContrastGuideline));
+      await check(tester).meetsGuideline(textContrastGuideline);
       handle.dispose();
     });
     testWidgets('with regard to labeling buttons.', (tester) async {
       await tester.pumpApp(widget, overrides: overrides);
 
       final handle = tester.ensureSemantics();
-      await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+      await check(tester).meetsGuideline(labeledTapTargetGuideline);
       handle.dispose();
     });
   });

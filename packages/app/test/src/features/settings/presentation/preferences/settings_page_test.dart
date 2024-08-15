@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:checks/checks.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_checks/flutter_checks.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:our_democracy/src/features/settings/application/settings_service.dart';
@@ -43,7 +45,7 @@ void main() {
       await tester.tap(find.byKey(const ValueKey(ThemeMode.dark)));
       await tester.pumpAndSettle();
 
-      expect(find.text('Dark Theme'), findsOneWidget);
+      check(find.text('Dark Theme')).findsOne();
 
       verify(() => mockSharedPreferences.setString('prefs', darkMode))
           .called(1);
