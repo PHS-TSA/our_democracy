@@ -14,6 +14,13 @@ packages:
     description: dart
     source: sdk
     version: "0.3.2"
+  analysis_options:
+    dependency: "direct dev"
+    description:
+      path: "../analysis_options"
+      relative: true
+    source: path
+    version: "0.0.1"
   analyzer:
     dependency: transitive
     description:
@@ -1438,7 +1445,7 @@ packages:
     source: hosted
     version: "2.1.4"
   very_good_analysis:
-    dependency: "direct dev"
+    dependency: transitive
     description:
       name: very_good_analysis
       sha256: "1fb637c0022034b1f19ea2acb42a3603cbd8314a470646a59a2fb01f5f3a8629"

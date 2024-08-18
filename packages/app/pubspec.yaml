@@ -59,6 +59,7 @@ dependencies:
   shared_preferences: ^2.3.2
 
 dev_dependencies:
+  analysis_options: any
   auto_route_generator: ^9.0.0
   build_runner: ^2.4.12
   build_web_compilers: ^4.0.11
@@ -76,7 +77,6 @@ dev_dependencies:
   mocktail: ^1.0.4
   riverpod_generator: ^2.4.3
   riverpod_lint: ^2.3.13
-  very_good_analysis: ^6.0.0
   very_good_cli: ^0.22.2
 
 # For information on the generic Dart part of this file, see the
