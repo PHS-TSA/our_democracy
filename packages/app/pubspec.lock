@@ -461,9 +461,10 @@ packages:
   flutter_checks:
     dependency: "direct dev"
     description:
-      path: "../flutter_checks"
-      relative: true
-    source: path
+      name: flutter_checks
+      sha256: a6f1d70c7dce3aec085c269a65d6bd5645b2a02a8e31909435d5f73e9d3a1bf6
+      url: "https://pub.dev"
+    source: hosted
     version: "0.0.1"
   flutter_gen_core:
     dependency: transitive
@@ -737,11 +738,12 @@ packages:
     source: hosted
     version: "3.0.1"
   legacy_checks:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
-      path: "../legacy_checks"
-      relative: true
-    source: path
+      name: legacy_checks
+      sha256: "15e6cadf3d4c7b64279217daab5fab419b9bef8112f5bbaae41b9e0662a8b60d"
+      url: "https://pub.dev"
+    source: hosted
     version: "0.0.1"
   lints:
     dependency: transitive
