@@ -11,7 +11,7 @@ updates:
     schedule:
       interval: "daily"
     assignees:
-      - "PHS-TSA"
+      - "lishaduck"
     groups:
       github:
         patterns:
@@ -23,7 +23,7 @@ updates:
     schedule:
       interval: "daily"
     assignees:
-      - "PHS-TSA"
+      - "lishaduck"
     groups:
       riverpod:
         patterns:
