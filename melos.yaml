@@ -14,6 +14,12 @@ command:
       post: melos run gen-l10n && melos run gen
 
 scripts:
+  get:
+    description: get dependencies (no lockfile update, linking)
+    exec: dart pub get
+  upgrade:
+    description: upgrade dependencies
+    exec: dart pub upgrade
   clean:
     description: clean project
     exec: flutter clean
